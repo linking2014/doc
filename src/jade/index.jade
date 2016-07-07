@@ -1,0 +1,159 @@
+extends layout
+block head
+    title blog
+    link(rel="shortcut icon", href="./favicon.ico")
+    link(rel="stylesheet", href="css/index.css?__VERSION")
+
+block content
+    .header
+        .header-fixed
+            .container
+                h1.logo
+                    a(href="/") FE
+                nav
+                    ul
+                        li
+                            a.active.waves-light(href="#") 博客
+                        li
+                            a.waves-light(href="#") 关于
+                        li
+                            a.waves-light(href="#") Github
+
+    .content
+        .container
+            h1 前端开发规范
+
+            .card
+                h2 规范概述
+                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+
+                h2 通用约定
+                h3 目录结构
+
+                pre
+                    code
+                        | 项目名
+                        | └─ index.html
+                        | ├─ css/
+                        | ├─ js/
+                        | ├─ img/
+                        | └─ lib/
+                        |     ├─ bootstrap/
+                        |     ├─ fontawesome/
+                        |     ├─ jquery/
+                        |     └─ knockout/
+
+                h3 代码缩进
+                p 每次缩进“4个空格”，不要用水平制表位的“\t”缩进。
+
+                h3 文件命名
+                p 所有文件的文件名用小写英文，可以使用中划线 <code>-</code> 作为连接符，文件名中不要出现空格。
+
+                h3 字符编码
+                p 所有文件采用UTF-8（不含BOM）编码。
+                pre
+                    code.html
+                        | &lt;head&gt;
+                        |     &lt;meta charset="utf-8"&gt;
+                        | &lt;head/&gt;
+
+                h3 使用小写
+                p
+                    ul
+                        li 所有的HTML标签小写；
+                        li 所有的HTML属性小写；
+                        li 所有的样式名及规则小写。
+
+                pre
+                    code.html
+                        | &lt;!DOCTYPE html&gt;
+                        | &lt;html lang="zh-cmn-Hans"&gt;
+                        | &lt;head&gt;
+                        |     &lt;meta charset="UTF-8"&gt;
+                        |     &lt;title&gt;...&lt;/title&gt;
+                        |     &lt;meta name="keywords" content="..."&gt;
+                        |     &lt;meta name="description" content="..."&gt;
+                        |     &lt;meta name="robots" content="..."&gt;
+                        |     &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"&gt;
+                        |     &lt;meta name="renderer" content="webkit"&gt;
+                        |     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        |     &lt;link rel="shortcut icon" href="favicon.ico"&gt;
+                        |     &lt;link rel="apple-touch-icon-precomposed" href="img/apple.png"&gt;
+                        |     &lt;link rel="stylesheet" href="css/....css"&gt;
+                        | &lt;/head&gt;
+                        | &lt;body&gt;
+                        |     &lt;div&gt;
+                        |     ...
+                        |     &lt;/div&gt;
+                        |     &lt;script src="js/....js"&gt;&lt;/script&gt;
+                        | &lt;/body&gt;
+                        | &lt;/html&gt;
+
+                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+
+            .card
+                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+                pre
+                    code.html
+                        |&lt;!DOCTYPE html&gt;
+                        |&lt;html lang="zh-cmn-Hans"&gt;
+                        |&lt;head&gt;
+                        |     &lt;meta charset="UTF-8"&gt;
+                        |     &lt;title&gt;...&lt;/title&gt;
+                        |     &lt;meta name="keywords" content="..."&gt;
+                        |     &lt;meta name="description" content="..."&gt;
+                        |     &lt;meta name="robots" content="..."&gt;
+                        |     &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"&gt;
+                        |     &lt;meta name="renderer" content="webkit"&gt;
+                        |     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        |     &lt;link rel="shortcut icon" href="favicon.ico"&gt;
+                        |     &lt;link rel="apple-touch-icon-precomposed" href="img/apple.png"&gt;
+                        |     &lt;link rel="stylesheet" href="css/....css"&gt;
+                        |&lt;/head&gt;
+                        |&lt;body&gt;
+                        |     &lt;div&gt;
+                        |     ...
+                        |     &lt;/div&gt;
+                        |     &lt;script src="js/....js"&gt;&lt;/script&gt;
+                        |&lt;/body&gt;
+                        |&lt;/html&gt;
+
+            .card
+                pre
+                    code.html
+                        | &lt;!DOCTYPE html&gt;
+                        | &lt;html lang="zh-cmn-Hans"&gt;
+                        | &lt;head&gt;
+                        |     &lt;meta charset="UTF-8"&gt;
+                        |     &lt;title&gt;...&lt;/title&gt;
+                        |     &lt;meta name="keywords" content="..."&gt;
+                        |     &lt;meta name="description" content="..."&gt;
+                        |     &lt;meta name="robots" content="..."&gt;
+                        |     &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"&gt;
+                        |     &lt;meta name="renderer" content="webkit"&gt;
+                        |     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        |     &lt;link rel="shortcut icon" href="favicon.ico"&gt;
+                        |     &lt;link rel="apple-touch-icon-precomposed" href="img/apple.png"&gt;
+                        |     &lt;link rel="stylesheet" href="css/....css"&gt;
+                        | &lt;/head&gt;
+                        | &lt;body&gt;
+                        |     &lt;div&gt;
+                        |     ...
+                        |     &lt;/div&gt;
+                        |     &lt;script src="js/....js"&gt;&lt;/script&gt;
+                        | &lt;/body&gt;
+                        | &lt;/html&gt;
+                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+
+block footer
+    .footer
+        p <i class="code">&lt;/&gt;</i> with <i class="heart">❤</i> by linking
+
+    //.fab.active.waves-effect.waves-circle
+        i.material-icons.md-24.md-dark arrow_upward
+
+    .fab.waves-float
+        i.material-icons.md-24.md-dark arrow_upward
+
+block script
+    script(src="js/index.bundle.js?__VERSION")
