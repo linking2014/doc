@@ -58,11 +58,20 @@ block content
                         | &lt;head/&gt;
 
                 h3 使用小写
-                p
-                    ul
-                        li 所有的HTML标签小写；
-                        li 所有的HTML属性小写；
-                        li 所有的样式名及规则小写。
+                ul
+                    li 所有的HTML标签小写；
+                    li 所有的HTML属性小写；
+                    li 所有的样式名及规则小写。
+
+                h3 多写注释
+                p 大的模块处必须加注释。容易出错的地方要写注释，说明问题及注意事项。
+
+                h3 其他
+                ul
+                    li 为表单元素添加 <code>&lt;label&gt;</code> 标签，并赋予 <code>for</code> 属性，对其进行描述；
+                        blockquote for属性能让鼠标点击label标签的时候，同时focus到对应的表单元素上，增加响应区域。
+                    li 为 <code>img</code> 元素添加 <code>alt</code> 属性。
+                        blockquote alt属性的内容为对该图片的简要描述，这对盲人用户和在图像无法加载时都非常有意义。
 
                 pre
                     code.html

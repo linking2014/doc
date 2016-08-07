@@ -7,7 +7,8 @@ $grey: #455A64;
 
 ::selection {
   background: #aafccf;
-  color: #345;
+  //color: #345;
+  color: #778899;
 }
 
 body {
@@ -116,20 +117,23 @@ body {
       padding: 24px 0 5px;
       line-height: 46px;
       font-size: 32px;
-      color: #3a3a3a;
+      //color: #3a3a3a;
+      color: rgba(0, 0, 0, 0.77);
       font-weight: 200;
     }
     h3 {
       padding: 20px 0 10px;
       line-height: 24px;
       font-size: 26px;
-      color: #6e6e6e;
+      //color: #6e6e6e;
+      color: rgba(0,0,0,.57);
       font-weight: 200;
     }
     p {
       padding: 16px 0;
       line-height: 24px;
-      color: #878787;
+      //color: #878787;
+      color: rgba(0, 0, 0, .47);
       font-size: 16px;
       text-indent: 2em;
       & + pre {
@@ -144,12 +148,28 @@ body {
       }
     }
     ul {
-      padding-left: 2em;
+      padding: 16px 0 16px 2em;
       li {
         list-style: disc;
         line-height: 24px;
-        color: #878787;
+        //color: #878787;
+        color: rgba(0, 0, 0, .47);
+        code {
+          padding: 2px 4px;
+          background-color: #E8EAEC;
+          border-radius: 3px;
+          font-size: 14px;
+          word-wrap: break-word;
+        }
       }
+    }
+    blockquote {
+      margin: 16px 0;
+      padding: 16px 24px;
+      background-color: rgba(29, 233, 182, 0.04);
+      border-radius: 3px;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
     }
     pre {
       overflow-y: hidden;

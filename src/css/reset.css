@@ -9,6 +9,9 @@ body {
   font-size: 14px;
   font-family: "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif; }
 
+pre, code {
+  font-family: "Microsoft YaHei Mono", "Lucida Console", 'SourceCodePro-Medium', monaco, inconsolata, consolas, monospace; }
+
 ol, ul, li, h1, h2, h3, h4, h5, h6, img, input, dl, dt, dd, p, textarea, pre, code {
   padding: 0;
   margin: 0;
