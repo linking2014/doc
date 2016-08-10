@@ -25,8 +25,9 @@ block content
 
             .card
                 h2 规范概述
-                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+                .passage 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS、JS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面，完成项目需求。
 
+            .card
                 h2 通用约定
                 h3 目录结构
 
@@ -44,13 +45,13 @@ block content
                         |     └─ knockout/
 
                 h3 代码缩进
-                p 每次缩进“4个空格”，不要用水平制表位的“\t”缩进。
+                .passage 每次缩进“4个空格”，不要用水平制表位的“\t”缩进。
 
                 h3 文件命名
-                p 所有文件的文件名用小写英文，可以使用中划线 <code>-</code> 作为连接符，文件名中不要出现空格。
+                .passage 所有文件的文件名用小写英文，可以使用中划线 <code>-</code> 作为连接符，文件名中不要出现空格。
 
                 h3 字符编码
-                p 所有文件采用UTF-8（不含BOM）编码。
+                .passage 所有文件采用UTF-8（不含BOM）编码。
                 pre
                     code.html
                         | &lt;head&gt;
@@ -64,7 +65,7 @@ block content
                     li 所有的样式名及规则小写。
 
                 h3 多写注释
-                p 大的模块处必须加注释。容易出错的地方要写注释，说明问题及注意事项。
+                .passage 大的模块处必须加注释。容易出错的地方要写注释，说明问题及注意事项。
 
                 h3 其他
                 ul
@@ -73,35 +74,62 @@ block content
                     li 为 <code>img</code> 元素添加 <code>alt</code> 属性。
                         blockquote alt属性的内容为对该图片的简要描述，这对盲人用户和在图像无法加载时都非常有意义。
 
+            .card
+                h2 HTML规范
+                h3 文档类型
+                ul
+                    li 统一使用HTML5的标准文档类型：<code>&lt;!DOCTYPE html&gt;</code>；
+                        blockquote HTML5文档类型前后兼容，易记易写。
+                    li 在文档doctype声明之前，不允许加上任何非空字符。
+                        blockquote 任何出现在doctype声明之前的字符都将使得HTML文档进入非标准模式。
+
+                h3 省略type属性
+                .passage 引入CSS和JavaScript文件时一般不指定他们的type属性。
+                    blockquote 在HTML5规范中， <code>text/css</code> 和 <code>text/javascript</code> 分别是他们的默认值。
+
+                .passage 错误写法：
                 pre
                     code.html
-                        | &lt;!DOCTYPE html&gt;
-                        | &lt;html lang="zh-cmn-Hans"&gt;
-                        | &lt;head&gt;
-                        |     &lt;meta charset="UTF-8"&gt;
-                        |     &lt;title&gt;...&lt;/title&gt;
-                        |     &lt;meta name="keywords" content="..."&gt;
-                        |     &lt;meta name="description" content="..."&gt;
-                        |     &lt;meta name="robots" content="..."&gt;
-                        |     &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"&gt;
-                        |     &lt;meta name="renderer" content="webkit"&gt;
-                        |     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-                        |     &lt;link rel="shortcut icon" href="favicon.ico"&gt;
-                        |     &lt;link rel="apple-touch-icon-precomposed" href="img/apple.png"&gt;
-                        |     &lt;link rel="stylesheet" href="css/....css"&gt;
-                        | &lt;/head&gt;
-                        | &lt;body&gt;
-                        |     &lt;div&gt;
-                        |     ...
-                        |     &lt;/div&gt;
-                        |     &lt;script src="js/....js"&gt;&lt;/script&gt;
-                        | &lt;/body&gt;
-                        | &lt;/html&gt;
+                        | &lt;link type="text/css" rel="stylesheet" href="base.css"&gt;
+                        | &lt;script type="text/javascript" src="base.js"&gt;&lt;/script&gt;
 
-                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+                .passage 正确写法：
+                pre
+                    code.html
+                        | &lt;link rel="stylesheet" href="base.css"&gt;
+                        | &lt;script src="base.js"&gt;&lt;/script&gt;
 
-            .card
-                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+                h3 省略自闭合标签尾部斜线
+                .passage 例：用 &lt;br&gt; 而不用 &lt;br/&gt;。
+                    blockquote HTML5 规范中已明确说明这是可选的。
+
+                h3 结构
+                ul
+                    li 结构、表现、行为三者分离，避免（减少）内联样式和脚本。
+                        blockquote 使用 <code>&lt;link&gt;</code> 标签引入css文件，并置于 <code>&lt;head&gt;</code> 中<br>使用 <code>&lt;script&gt;</code> 引入js文件，并置于 <code>&lt;body&gt;</code> 底部。
+                    li 将每个块元素、列表元素或表格元素都放在新的一行；大的模块之间用空行隔开，使模块更清晰，方便后期维护。
+                    li 减少不必要的标签嵌套，保持最小的复杂度。
+
+                h3 语义化
+                .passage 根据HTML标签本身的用途去使用。
+                .passage 错误写法：
+                pre
+                    code.html
+                        | &lt;p&gt;这是一个标题&lt;/p&gt;
+                .passage 正确写法：
+                pre
+                    code.html
+                        | &lt;h1&gt;这是一个标题&lt;/h1&gt;
+
+                h3 属性顺序
+                .passage HTML标签的属性按照以下顺序排列，提高代码易读性：
+                ul
+                    li class
+                    li id
+                    li src、for、type、href
+                    li alt
+
+                h3 HTML模板
                 pre
                     code.html
                         |&lt;!DOCTYPE html&gt;
@@ -152,7 +180,7 @@ block content
                         |     &lt;script src="js/....js"&gt;&lt;/script&gt;
                         | &lt;/body&gt;
                         | &lt;/html&gt;
-                p 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
+                .passage 开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。
 
 block footer
     .footer
