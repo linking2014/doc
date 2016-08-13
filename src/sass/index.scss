@@ -53,7 +53,7 @@ body {
 
 .header {
   overflow: visible;
-  height: 130px;
+  height: 64px;
   &:before {
     content: '';
     display: block;
@@ -61,6 +61,20 @@ body {
     //height: 440px;
     height: 360px;
     background-color: $grey;
+  }
+  &:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-left: -360px;
+    width: 720px;
+    height: 64px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0), 0 4px 8px rgba(0, 0, 0, 0);
+    transition: box-shadow .1s;
+  }
+  &.active:after {
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
   }
   .header-fixed {
     position: fixed;
@@ -75,9 +89,8 @@ body {
     //background-color: rgba(55,71,79,0.5); //半透明
     background-color: #3E5059; //叠加色
     line-height: 64px;
-    //box-shadow: 0 0 4px rgba(0, 0, 0, 0), 0 4px 8px rgba(0, 0, 0, 0);
-    box-shadow: 0 0 4px rgba(69, 90, 100, 0.14), 0 4px 8px rgba(69, 90, 100, .28);
-    transition: box-shadow .2s;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0), 0 4px 8px rgba(0, 0, 0, 0);
+    transition: box-shadow .1s;
     &.active {
       box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
     }
@@ -130,7 +143,8 @@ body {
 }
 .content {
   h1 {
-    margin: 30px 0;
+    //margin: 30px 0;
+    padding: 96px 0 30px;
     @include text-h1;
   }
   .card {

@@ -241,8 +241,18 @@ $(function(){
 
     hljs.initHighlightingOnLoad();
 
+    var bgElement = document.getElementsByClassName('header')[0];
+    var bgHeight = parseInt(window.getComputedStyle(bgElement, ':before').getPropertyValue('height'));
+    var cardHeight = $('.card:first').offset().top;
+    var $header = $('.header');
+    var $headerFixed = $('.header-fixed');
+    var headerHeight = $header.height();
+    var posShadowCenter = cardHeight - headerHeight;
+    var posShadowWide = bgHeight - headerHeight;
+
     $window.on('scroll', function () {
-        $('.header-fixed, .fab').toggleClass('active', $window.scrollTop() >= 376);
+        $header.toggleClass('active', $window.scrollTop() >= posShadowCenter && $window.scrollTop() <= posShadowWide);
+        $('.header-fixed, .fab').toggleClass('active', $window.scrollTop() >= posShadowWide);
     });
 
     $fab.on('click',function () {
