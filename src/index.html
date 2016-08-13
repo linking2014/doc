@@ -72,7 +72,7 @@
           </ul>
         </div>
         <div class="card">
-          <h2>HTML规范</h2>
+          <h2>HTML 规范</h2>
           <h3>文档类型</h3>
           <ul>
             <li>统一使用HTML5的标准文档类型：<code>&lt;!DOCTYPE html&gt;</code>；
@@ -143,29 +143,97 @@
 &lt;/html&gt;</code></pre>
         </div>
         <div class="card">
-          <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang="zh-cmn-Hans"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;...&lt;/title&gt;
-    &lt;meta name="keywords" content="..."&gt;
-    &lt;meta name="description" content="..."&gt;
-    &lt;meta name="robots" content="..."&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"&gt;
-    &lt;meta name="renderer" content="webkit"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    &lt;link rel="shortcut icon" href="favicon.ico"&gt;
-    &lt;link rel="apple-touch-icon-precomposed" href="img/apple.png"&gt;
-    &lt;link rel="stylesheet" href="css/....css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div&gt;
-    ...
-    &lt;/div&gt;
-    &lt;script src="js/....js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-          <div class="passage">开发规范是我们在工作中积累与沉淀的产物，可以帮助我们更快、更好地完成任务。开发规范的主要目的在于：降低组员介入项目的门槛；统一代码风格,便于后期维护；提高工作效率及协同开发的便捷性；提供一整套HTML、CSS解决方案，减少重复劳动，帮助开发人员快速做出高质量的页面。</div>
+          <h2>CSS 规范</h2>
+          <h3>文件引用</h3>
+          <ul>
+            <li>使用 <code>&lt;link rel="stylesheet" href="base.css"&gt;</code> 的方式调用外部样式；</li>
+            <li>不要在CSS文件中使用 <code>@import</code> ；</li>
+            <li>不要在HTML文件中写行内样式。</li>
+          </ul>
+          <blockquote>一般来说，页面中只允许使用 <code>&lt;link&gt;</code> 标签引入CSS文件。</blockquote>
+          <h3>书写格式</h3>
+          <div class="passage">CSS 说明：
+            <blockquote class="show-quote"><code class="css css-selector">.container <span class="selector">选择器</span></code>&nbsp;<code class="css css-state">{<span class="css-state1"><span class="attr">background-color<span class="attr-anim">属性</span></span>: <span class="value">#123456<span class="value-anim">值</span></span>;<span class="state">声明</span></span> <span class="css-state2"><span class="attr">padding<span class="attr-anim">属性</span></span>: <span class="value">20px 16px<span class="value-anim">值</span></span>;<span class="state">声明</span></span>}</code></blockquote>
+          </div>
+          <ul>
+            <li>多个选择器使用同一声明块时，每个独立的选择器占用一行；</li>
+            <li>一个声明块中的多条声明，每个独立的声明占用一行；</li>
+            <li>声明块的左括号前保留一个空格；</li>
+            <li>每条声明的“:”后保留一个空格；</li>
+            <li>所有的十六进制值都用小写，并尽量简写；</li>
+            <li>不为0值指定单位；</li>
+            <li>每条声明的最后都以“;”结束；</li>
+            <li>带前缀的属性：
+              <pre><code class="css">img {
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+         -o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}</code></pre>
+            </li>
+          </ul>
+          <div class="passage">不推荐写法
+            <pre><code class="css">h1,h2,h3{padding:0<span class="bg-red">px</span>;background-color:<span class="bg-red">#DDEEFF</span>;font-weight:normal<span class="bg-red">&nbsp;</span>}</code></pre>
+          </div>
+          <div class="passage">推荐写法
+            <pre><code class="css">h1,
+h2,
+h3<span class="bg-green">&nbsp;</span>{
+    padding:<span class="bg-green">&nbsp;</span>0;
+    background-color:<span class="bg-green">&nbsp;</span>#def;
+    font-weight:<span class="bg-green">&nbsp;</span>normal<span class="bg-green">;</span>
+}</code></pre>
+          </div>
+          <h3>选择器命名</h3>
+          <ul>
+            <li>命名必须由单词、数字和中划线 <code>-</code> 组成；</li>
+            <li>命名中不允许使用拼音（约定俗成的除外，如：weibo, baidu），尤其是缩写的拼音、拼音与英文的混合。</li>
+          </ul>
+          <blockquote>使用中划线（减号） <code>-</code> 作为连接符，而不是下划线 <code>_</code> 。</blockquote>
+          <h3>声明顺序</h3>
+          <div class="passage">定位与显示</div>
+          <blockquote>display、visibility、position、z-index、float、clear、overflow...</blockquote>
+          <div class="passage">盒模型相关</div>
+          <blockquote>width、height、padding、margin、border、box-shadow...</blockquote>
+          <div class="passage">背景</div>
+          <blockquote>background...</blockquote>
+          <div class="passage">文字排版</div>
+          <blockquote>font、color、text-align、line-height、text-indent...</blockquote>
+          <div class="passage">CSS3动画</div>
+          <blockquote>transition、animation...</blockquote>
+        </div>
+        <div class="card">
+          <h2>开发工具</h2>
+          <ul>
+            <li>编辑器：<a href="http://www.sublimetext.com/3" target="_blank">Sublime Text 3</a></li>
+            <li>浏览器：<a href="http://www.google.com/chrome/browser/desktop" target="_blank">Chrome</a> / <a href="http://www.mozilla.org/en-US/firefox/all" target="_blank">Firefox</a> / <a href="http://www.modern.ie/zh-cn" target="_blank">modern.IE</a></li>
+            <li>png压缩：<a href="http://pnggauntlet.com" target="_blank">PNGGauntlet</a></li>
+            <li>取色器：<a href="http://linking2014.sinaapp.com/%E5%B1%8F%E5%B9%95%E5%8F%96%E8%89%B2%E5%99%A8.exe" target="_blank" download>屏幕取色器</a></li>
+            <li>标注工具：<a href="http://www.getmarkman.com/" target="_blank">马克鳗</a></li>
+            <li>图标管理：<a href="http://www.syncfusion.com/downloads/metrostudio" target="_blank">Metro Studio</a></li>
+            <li>屏幕录制：<a href="https://screentogif.codeplex.com/" target="_blank">ScreenToGif</a></li>
+            <li>笔记：<a href="http://www.wiz.cn/download.html" target="_blank">为知笔记</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>关于规范</h2>
+          <table>
+            <tbody>
+              <tr>
+                <th>规范名称</th>
+                <td>前端开发规范</td>
+              </tr>
+              <tr>
+                <th>当前版本</th>
+                <td>1.05 beta</td>
+              </tr>
+              <tr>
+                <th>最后更新</th>
+                <td>2016/08/13</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

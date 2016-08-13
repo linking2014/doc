@@ -1,9 +1,27 @@
 .hljs {
   display: block;
   overflow-x: auto;
+  position: relative;
   //padding: 0.5em;
   color: #607d8b;
   background: #f8f8ff;
+  &:before {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 10;
+    line-height: 24px;
+    font-weight: bold;
+  }
+  &.html:before {
+    content: 'HTML';
+  }
+  &.css:before {
+    content: 'CSS';
+  }
+  &.js:before {
+    content: 'JS';
+  }
 }
 
 .hljs-comment,
