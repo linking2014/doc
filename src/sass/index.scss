@@ -4,6 +4,7 @@
 @import "waves";
 
 $grey: #455A64;
+$bannerHeight: 64px;
 @mixin text-h1 {
   line-height: 40px;
   font-size: 36px;
@@ -53,7 +54,7 @@ body {
 
 .header {
   overflow: visible;
-  height: 64px;
+  height: $bannerHeight;
   &:before {
     content: '';
     display: block;
@@ -69,7 +70,7 @@ body {
     left: 50%;
     margin-left: -360px;
     width: 720px;
-    height: 64px;
+    height: $bannerHeight;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0), 0 4px 8px rgba(0, 0, 0, 0);
     transition: box-shadow .1s;
   }
@@ -84,11 +85,9 @@ body {
     top: 0;
     z-index: 100;
     width: 108%;
-    height: 64px;
     //background-color: #37474F; //原始色
     //background-color: rgba(55,71,79,0.5); //半透明
     background-color: #3E5059; //叠加色
-    line-height: 64px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0), 0 4px 8px rgba(0, 0, 0, 0);
     transition: box-shadow .1s;
     &.active {
@@ -96,8 +95,8 @@ body {
     }
     .logo {
       float: left;
-      width: 64px;
-      height: 64px;
+      width: $bannerHeight;
+      height: $bannerHeight;
       background: url("../img/logo_new.png") no-repeat center;
       a {
         display: block;
@@ -113,27 +112,41 @@ body {
         overflow: hidden;
         li {
           float: left;
-          //margin-left: 1px;
+          margin-left: 1px;
           a {
+            position: relative;
             display: block;
-            //padding: 22px 16px 20px;
-            padding: 22px 0 20px;
             width: 80px;
-            height: 20px;
-            line-height: 20px;
-            border-bottom: solid 2px transparent;
+            height: $bannerHeight;
+            line-height: $bannerHeight;
             font-size: 16px;
             color: #d5dde0;
             text-align: center;
-            transition: color .2s, border-bottom-color .2s;
+            transition: color .3s;
+            &:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              height: 2px;
+              background-color: transparent;
+              transition: background-color .4s;
+            }
             &:hover {
               //border-bottom-color: rgba(104, 239, 173, 0.6);
-              border-bottom-color: rgba(29,233,182,0.5);
               color: #ffffff;
+              &:after {
+                background-color: rgba(29,233,182,0.7);
+              }
             }
             &.active {
-              border-bottom-color: #1DE9B6;
+              //border-bottom-color: #1DE9B6;
               color: #ffffff;
+              &:after {
+                background-color: #1DE9B6;
+              }
+
             }
           }
         }
@@ -208,7 +221,8 @@ body {
     blockquote {
       margin: 16px 0 16px 2em;
       padding: 16px 24px;
-      background-color: rgba(29, 233, 182, 0.04);
+      //background-color: rgba(29, 233, 182, 0.04);
+      background-color: #fafafb;
       border-radius: 3px;
       box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
       font-size: 14px;
@@ -367,7 +381,8 @@ body {
       code.hljs {
         padding: 16px 24px;
         //background-color: rgba(0, 100, 255, 0.03);
-        background-color: rgba(29,233,182,0.04);
+        //background-color: rgba(29,233,182,0.04);
+        background-color: #fafafb;
         border-radius: 3px;
         box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
       }
