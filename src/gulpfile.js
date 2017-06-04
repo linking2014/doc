@@ -1,18 +1,19 @@
 var gulp = require('gulp');
-var gulpCssnano = require('gulp-cssnano');
 var gulpPlumber = require('gulp-plumber');
 var gulpReplace = require('gulp-replace');
 var gulpUglify = require('gulp-uglify');
 var gulpImage = require('gulp-image');
 var gulpConnect = require('gulp-connect');
 var gulpSass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
 var webpackStream = require('webpack-stream');
 var livereload = require('gulp-livereload');
 var jade = require("gulp-jade");
 var inlinesource = require('gulp-inline-source');
-var postcss = require('gulp-postcss');
+// var postcss = require('gulp-postcss');
 //var px2rem = require('postcss-px2rem');
-var autoprefixer = require('gulp-autoprefixer');
+//var responsive = require('gulp-responsive');
 
 //全局配置相关
 var config = {
@@ -20,6 +21,8 @@ var config = {
     macro: {
         '__VERSION': Date.now().toString(16)
     },
+    //编译目录
+    build: './build/',
     //发布目录
     release: '../dist',
     //webpack构建配置
@@ -29,22 +32,20 @@ var config = {
 };
 
 gulp.task('sass', function () {
-    //var processors = [px2rem({remUnit: 75})];
     return gulp.src('./sass/*.scss')
         .pipe(gulpSass().on('error', gulpSass.logError))
-        //.pipe(postcss(processors))
         .pipe(autoprefixer({
-            browsers: ["ie 8", "Chrome > 20", "Firefox > 5"],
+            browsers: ['last 3 versions', 'ie >= 8', 'Chrome >= 34', 'Firefox >= 30', 'safari >= 6', 'android >= 4.4', 'ios >= 7'],
             cascade: false
         }))
         .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('css', ['sass'], function () {
-    return gulp.src(['./css/*.css', '!./css/animate.css'])
+    return gulp.src(['./css/*.css'])
         .pipe(gulpPlumber())
-        .pipe(gulpCssnano())
-        .pipe(gulp.dest('./build/css/'));
+        .pipe(cleanCSS())
+        .pipe(gulp.dest(config.build + '/css/'));
 });
 
 gulp.task('webpack', function () {
@@ -59,21 +60,29 @@ gulp.task('webpack', function () {
 });
 
 gulp.task('js', ['webpack'], function () {
-    return gulp.src(['./js/*.bundle.js', './js/flexible.js'])
+    return gulp.src(['./js/*.bundle.js'])
         .pipe(gulpPlumber())
         .pipe(gulpUglify())
-        .pipe(gulp.dest('./build/js/'));
+        .pipe(gulp.dest(config.build + 'js/'));
 });
 
 gulp.task('image', function () {
-    return gulp.src('./img/*.+(jpg|png|gif|svg)')
-        .pipe(gulpImage())
-        .pipe(gulp.dest('./build/img/'));
+    return gulp.src('./img/**/*.+(jpg|png|gif|svg)')
+        .pipe(gulpImage({
+            zopflipng: false,
+            jpegoptim: true
+        }))
+        .pipe(gulp.dest(config.build + 'img/'));
 });
 
 gulp.task('font', function () {
     return gulp.src('./font/*.+(eot|svg|ttf|woff)')
-        .pipe(gulp.dest('./build/font/'));
+        .pipe(gulp.dest(config.build + 'font/'));
+});
+
+gulp.task('favicon', function () {
+    return gulp.src('./*.ico')
+        .pipe(gulp.dest(config.build));
 });
 
 gulp.task('jade', function () {
@@ -85,30 +94,30 @@ gulp.task('jade', function () {
 
 gulp.task('html', ['jade'], function () {
     return gulp.src('./*.html')
-        .pipe(gulp.dest('./build/'));
+        .pipe(gulp.dest(config.build));
 });
 
 gulp.task('macro', ['css', 'js', 'image', 'font', 'html'], function () {
-    var stream = gulp.src(['./build/**/*.css', './build/**/*.js', 'build/*.html']);
+    var stream = gulp.src([config.build + '**/*.css', config.build + '**/*.js', config.build + '*.html']);
     for (var key in config.macro) {
         if (config.macro.hasOwnProperty(key)) {
             stream = stream.pipe(gulpReplace(key, config.macro[key]));
         }
     }
-    return stream.pipe(gulp.dest('./build/'));
+    return stream.pipe(gulp.dest(config.build));
 });
 
 gulp.task('default', ['macro'], function () {
-    return gulp.src('./build/**')
-        .pipe(gulp.dest(config.release));
+    return gulp.src(config.build + '**')
+       .pipe(gulp.dest(config.release));
 });
 
 gulp.task('watch', function () {
-    livereload.listen();
-    gulp.watch('sass/**/*.scss', ['sass']);
-    gulp.watch('css/**/*.css', ['css']);
-    gulp.watch('js/**/*.js', ['js']);
+    //livereload.listen();
+    gulp.watch(['./sass/**/*.scss','./sass/**/*.sass'], ['css']);
+    gulp.watch(['./js/**/*.js','!./js/*.bundle.js'], ['js']);
     gulp.watch('jade/**/*.jade', ['html']);
+    // gulp.watch('./*.html', ['html']);
 });
 
 //启动一个本地调试服务器

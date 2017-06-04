@@ -13,13 +13,14 @@
   overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   vertical-align: middle;
   z-index: 1;
   will-change: opacity, transform;
   -webkit-transition: all .3s ease-out;
-  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
   transition: all .3s ease-out; }
 
 .waves-effect .waves-ripple {
@@ -32,16 +33,15 @@
   opacity: 0;
   background: rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.7s ease-out;
-  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
   transition: all 0.7s ease-out;
   transition-property: opacity, -webkit-transform;
   -webkit-transition-property: opacity, -webkit-transform;
-  -moz-transition-property: transform, opacity, -moz-transform;
+  -o-transition-property: transform, opacity;
   transition-property: transform, opacity;
-  transition-property: transform, opacity, -webkit-transform, -moz-transform;
   transition-property: transform, opacity, -webkit-transform;
   -webkit-transform: scale(0);
-  -moz-transform: scale(0);
+  -ms-transform: scale(0);
   transform: scale(0);
   pointer-events: none; }
 
@@ -75,12 +75,11 @@
 
 .waves-notransition {
   -webkit-transition: none !important;
-  -moz-transition: none !important;
+  -o-transition: none !important;
   transition: none !important; }
 
 .waves-circle {
   -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%); }
 

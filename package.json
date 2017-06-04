@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.4.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-image": "^2.9.0",
+    "gulp-inline-source": "^3.1.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "lodash.throttle": "^4.1.1",
+    "webpack-stream": "^3.2.0"
+  }
+}

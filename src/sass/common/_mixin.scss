@@ -1,0 +1,37 @@
+@mixin text-h1 {
+  line-height: 40px;
+  font-size: 36px;
+  font-weight: 300;
+  color: #e6e7e8;
+}
+
+@mixin text-h2 {
+  line-height: 46px;
+  font-size: 32px;
+  font-weight: 200;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+@mixin text-h3 {
+  line-height: 28px;
+  font-size: 26px;
+  font-weight: 200;
+  color: rgba(0,0,0,.8);
+}
+
+@mixin text-p {
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, .7);
+}
+
+@mixin code-inline {
+  code {
+    padding: 2px 4px;
+    background-color: #E8EAEC;
+    border-radius: 3px;
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+}

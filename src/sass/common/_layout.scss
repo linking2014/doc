@@ -1,0 +1,16 @@
+::selection {
+  background: $selectColor;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bgColor;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $containerWidth;
+}

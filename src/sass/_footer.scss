@@ -1,0 +1,21 @@
+.footer {
+  padding: 36px 0;
+  color: #777;
+  text-align: center;
+  p {
+    line-height: 1;
+    font-size: 14px;
+    font-family: "Microsoft YaHei Mono", "Lucida Console", 'SourceCodePro-Medium', monaco, inconsolata, consolas, monospace;
+    i {
+      display: inline-block;
+      font-style: normal;
+      &.code {
+
+      }
+      &.heart {
+        color: #ea5a5a;
+        animation: scale 1.2s infinite;
+      }
+    }
+  }
+}

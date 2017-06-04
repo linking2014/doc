@@ -2,6 +2,7 @@ var $ = require('./jquery');
 require('./jquery.easing');
 var hljs = require('./highlight.pack');
 var Waves = require('./waves');
+var throttle = require('lodash.throttle');
 var $window = $(window);
 // var scrollTop = $window.scrollTop();
 var windowHeight = $window.height();
@@ -250,10 +251,18 @@ $(function(){
     var posShadowCenter = cardHeight - headerHeight;
     var posShadowWide = bgHeight - headerHeight;
 
-    $window.on('scroll', function () {
-        $header.toggleClass('active', $window.scrollTop() >= posShadowCenter && $window.scrollTop() <= posShadowWide);
-        $('.header-fixed, .fab').toggleClass('active', $window.scrollTop() >= posShadowWide);
-    });
+    var $cardHeader = $('.card-header');
+    var $cardTitle = $('.card-header-title');
+    var posHeader = $cardHeader.offset().top + $cardHeader.height() - $cardTitle.height();
+    var i = 0;
+
+    $window.on('scroll', throttle(scrollCal, 10));
+
+    function scrollCal() {
+        console.log(i++);
+        $cardHeader.toggleClass('active', $window.scrollTop() >= posHeader);
+        $('.header-fixed, .fab').toggleClass('active', $window.scrollTop() >= posHeader);
+    }
 
     $fab.on('click',function () {
         if(scrolling == false) {
