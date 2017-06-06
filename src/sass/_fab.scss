@@ -2,9 +2,11 @@
   visibility: hidden;
   opacity: 0;
   position: fixed;
-  right: 24px;
+  //right: 24px;
+  left: 50%;
   bottom: 24px;
   z-index: 50;
+  margin-left: 400px;
   width: 56px;
   height: 56px;
   background-color: #1DE9B6;

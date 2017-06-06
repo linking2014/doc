@@ -1,29 +1,52 @@
+//@mixin text-h1 {
+//  line-height: 40px;
+//  font-size: 36px;
+//  font-weight: 300;
+//  color: #e6e7e8;
+//}
+//
+//@mixin text-h2 {
+//  line-height: 46px;
+//  font-size: 32px;
+//  font-weight: 200;
+//  color: rgba(0, 0, 0, 0.9);
+//}
+//
+//@mixin text-h3 {
+//  line-height: 28px;
+//  font-size: 26px;
+//  font-weight: 200;
+//  color: rgba(0,0,0,.8);
+//}
+
 @mixin text-h1 {
-  line-height: 40px;
-  font-size: 36px;
-  font-weight: 300;
-  color: #e6e7e8;
+  font-size: 2.5em;
+  border-bottom: 1px solid #ddd
 }
-
 @mixin text-h2 {
-  line-height: 46px;
-  font-size: 32px;
-  font-weight: 200;
-  color: rgba(0, 0, 0, 0.9);
+  font-size: 2em;
+  border-bottom: 1px solid #eee
 }
-
 @mixin text-h3 {
-  line-height: 28px;
-  font-size: 26px;
-  font-weight: 200;
-  color: rgba(0,0,0,.8);
+  font-size: 1.5em
+}
+@mixin text-h4 {
+  font-size: 1.2em
+}
+@mixin text-h5 {
+  font-size: 1em
+}
+@mixin text-h6 {
+  color: #777;
+  font-size: 1em
 }
 
 @mixin text-p {
-  line-height: 24px;
-  font-size: 16px;
+  line-height: 1.7;
+  font-size: 15px;
   font-weight: normal;
-  color: rgba(0, 0, 0, .7);
+  //color: rgba(0, 0, 0, .7);
+  color: #616161;
 }
 
 @mixin code-inline {

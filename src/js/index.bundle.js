@@ -56,7 +56,6 @@
 	var $header = $('.header-fixed');
 	var headerHeight = $header.height();
 	var $fab = $('.fab');
-
 	// var shadowPos1 = $;
 	var scrolling = false;
 
@@ -302,13 +301,13 @@
 	    var posHeader = $cardHeader.offset().top + $cardHeader.height() - $cardTitle.height();
 	    var i = 0;
 
-	    $window.on('scroll', throttle(scrollCal, 10));
+	    // $window.on('scroll', throttle(scrollCal, 10));
 
-	    function scrollCal() {
-	        console.log(i++);
-	        $cardHeader.toggleClass('active', $window.scrollTop() >= posHeader);
-	        $('.header-fixed, .fab').toggleClass('active', $window.scrollTop() >= posHeader);
-	    }
+	    // function scrollCal() {
+	        // console.log(i++);
+	        // $cardHeader.toggleClass('active', $window.scrollTop() >= posHeader);
+	        // $('.header-fixed, .fab').toggleClass('active', $window.scrollTop() >= posHeader);
+	    // }
 
 	    $fab.on('click',function () {
 	        if(scrolling == false) {
